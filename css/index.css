@@ -14,8 +14,9 @@ a{
 header{
     width: 100%;
     position: fixed;
-    overflow: hidden;
+    /*overflow: hidden;*/
     transition: .4s;
+    z-index: 999;
 }
 
 .content{
@@ -23,12 +24,9 @@ header{
     top: 55px;
 }
 
-.head-nav{
-    width: 100%;
-    background-color: rgba(0,0,0,.7);
-}
 
 .head-nav ul{
+    background-color: rgba(0,0,0,.7);
     width: 100%;
     display: flex;
     align-items: center;
@@ -38,7 +36,7 @@ header{
 
 .head-nav ul li{
     width: 135px;
-    height: 100%;
+    position: relative;
 }
 
 .head-nav ul li a{
@@ -58,4 +56,27 @@ header{
 .head-nav ul li a:hover{
     background-color: aliceblue;
     color: black;
+}
+
+.head-nav ul>li>ul{
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    /*position: fixed;*/
+    z-index: 999;
+    overflow: hidden;
+    transition: .4s ease;
+}
+
+.head-nav ul>li:hover>ul{
+    max-height: 200%;
+}
+
+
+header:hover{
+    /*overflow: visible;*/
 }
