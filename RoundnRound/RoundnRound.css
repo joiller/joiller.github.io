@@ -1,10 +1,22 @@
-.person{
+.container{
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
     width: 200px;
     height: 300px;
+    transform: translate(-50%,-50%);
+}
+
+.person{
+    position: absolute;
+    top: 0;
+    left: 0;
+    /*transform-style: preserve-3d;*/
+    transform-origin: 0 0 150px;
+    /*transform: rotateX(100deg);*/
+    width: 200px;
+    height: 300px;
+    animation: persona1 .5s linear infinite,persona2 3s linear infinite;
 }
 
 .head{
@@ -74,13 +86,15 @@
 
 .body .arm1{
     right: 85%;
+    animation: arma1 1s linear infinite;
     clip-path: polygon(96.8% 5.5%,98.4% 7.7%,63.8% 44.7%,31% 11.5%,33% 9.4%,63.8% 38.7%);
 }
 
 .body .arm2{
     z-index: -999;
-    right: 10%;
+    right: 30%;
     clip-path: polygon(96.8% 5.5%,98.4% 7.7%,63.8% 44.7%,31% 11.5%,33% 9.4%,63.8% 38.7%);
+    animation: arma2 1s linear infinite;
     transform: rotate(-90deg);
 }
 
@@ -96,33 +110,46 @@
 
 .body .leg1{
     /*left: ;*/
+    animation: lega1 1s linear infinite;
     clip-path: polygon(35.2% 7%,33% 5%,3.6% 25.6%,28.2% 44.6%,31% 43%,7.6% 25.6%);
-}
-
-.body .leg1back{
-    clip-path: polygon(35.8% 4%,33% 5%,54.8% 25.2%,80.8% 38.8%,82.4% 36.4%,57% 23.4%);
-}
-
-.body .leg2{
-    /*right: 0;*/
-    /*background-color: unset;*/
 }
 .body .leg2{
     /*left: 0;*/
+    animation: lega2 1s linear infinite;
     clip-path: polygon(35.8% 4%,33% 5%,54.8% 25.2%,80.8% 38.8%,82.4% 36.4%,57% 23.4%);
 }
 
+@keyframes arma1 {
+    50%{
+        transform: rotate(-90deg);
+    }
+}
+@keyframes arma2 {
+    50%{
+        transform: rotate(0);
+    }
+}
 
-.body:hover .leg1{
-    clip-path: polygon(35.8% 4%,33% 5%,54.8% 25.2%,80.8% 38.8%,82.4% 36.4%,57% 23.4%);
+@keyframes lega1 {
+    50%{
+        clip-path: polygon(35.8% 4%,33% 5%,54.8% 25.2%,80.8% 38.8%,82.4% 36.4%,57% 23.4%);
+    }
 }
-.body:hover .leg2{
-    clip-path: polygon(35.2% 7%,33% 5%,3.6% 25.6%,28.2% 44.6%,31% 43%,7.6% 25.6%);
+@keyframes lega2 {
+    50%{
+        clip-path: polygon(35.2% 7%,33% 5%,3.6% 25.6%,28.2% 44.6%,31% 43%,7.6% 25.6%);
+    }
 }
 
-.body:hover .arm1{
-    transform: rotate(-90deg);
+@keyframes persona1 {
+    50%{
+        top: 5%;
+    }
 }
-.body:hover .arm2{
-    transform: rotate(0deg);
+
+@keyframes persona2 {
+
+    to{
+        transform: rotateY(360deg);
+    }
 }
