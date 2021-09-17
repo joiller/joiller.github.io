@@ -1,0 +1,84 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+ul,ol{
+    list-style-type: none;
+}
+
+a{
+    text-decoration-line: none;
+    text-decoration: none;
+}
+
+header{
+    text-transform: uppercase;
+    width: 100%;
+    position: fixed;
+    /*overflow: hidden;*/
+    transition: .4s;
+    z-index: 999;
+}
+
+.content{
+    position: absolute;
+    top: 55px;
+}
+
+
+.head-nav ul{
+    background-color: rgba(0,0,0,.7);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: 55px;
+    justify-content: center;
+}
+
+.head-nav ul li{
+    width: 135px;
+    position: relative;
+}
+
+.head-nav ul li a{
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    line-height: 55px;
+    color: aliceblue;
+    -webkit-transition: all .6s;
+    -moz-transition: prop .6s;
+    -ms-transition: prop .6s;
+    -o-transition: prop .6s;
+    transition: prop .6s;
+}
+
+.head-nav ul li a:hover{
+    background-color: aliceblue;
+    color: black;
+}
+
+.head-nav ul>li>ul{
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    /*position: fixed;*/
+    z-index: 999;
+    overflow: hidden;
+    transition: .4s ease;
+}
+
+.head-nav ul>li:hover>ul{
+    max-height: 400%;
+}
+
+
+header:hover{
+    /*overflow: visible;*/
+}
